@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "common/c_test.h"
-#include "common/logger.h"
+#include "core/c_test.h"
+#include "core/c_log.h"
 
 void main()
 {

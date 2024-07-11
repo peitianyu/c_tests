@@ -1,5 +1,5 @@
-#ifndef __COMMON_LOGGER_H__
-#define __COMMON_LOGGER_H__
+#ifndef __CORE_LOG_H__
+#define __CORE_LOG_H__
 
 #include <stdio.h>
 
@@ -33,4 +33,4 @@ void close_log_file();
 #define LOG_FILE(...)       log_file(__VA_ARGS__)
 #define CLOSE_LOG_FILE      close_log_file()
 
-#endif // __COMMON_LOGGER_H__
+#endif // __CORE_LOG_H__
