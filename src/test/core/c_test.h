@@ -16,7 +16,6 @@ void Register(char* name, void (*test)());
 void RegisterJustRun(char* name);
 void RunAllTests();
 
-#define JUST_RUN_TEST(base, name) __attribute__((constructor)) void just_run_##base##name##_Test_Register() { RegisterJustRun(#base "." #name); } 
 #define TEST(base, name) void base##name##_Test(); \
     __attribute__((constructor)) void base##name##_Test_Register() { Register(#base "." #name, base##name##_Test); } \
     void base##name##_Test()
