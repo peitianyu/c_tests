@@ -56,6 +56,7 @@ void RunAllTests() {
 
     char buf[32];
     if (!fgets(buf, sizeof(buf), stdin)) return;
+    if (buf[0] == '\n') return;
 
     int idx = atoi(buf);
     if (idx < 0 || idx >= m_tests_size) {
