@@ -1,16 +1,20 @@
 #ifndef __C_TEST_H__
 #define __C_TEST_H__
 
+#include <string.h>
+
 void Tester_Is(char* name, int line, int x, char* msg);
 
-#define ASSERT_TRUE(x) Tester_Is(__FILE__, __LINE__, (x), #x)
-#define ASSERT_FALSE(x) Tester_Is(__FILE__, __LINE__, !(x), #x)
-#define ASSERT_EQ(a, b) Tester_Is(__FILE__, __LINE__, (a) == (b), #a " == " #b)
-#define ASSERT_NE(a, b) Tester_Is(__FILE__, __LINE__, (a) != (b), #a " != " #b)
-#define ASSERT_LT(a, b) Tester_Is(__FILE__, __LINE__, (a) < (b), #a " < " #b)
-#define ASSERT_LE(a, b) Tester_Is(__FILE__, __LINE__, (a) <= (b), #a " <= " #b)
-#define ASSERT_GT(a, b) Tester_Is(__FILE__, __LINE__, (a) > (b), #a " > " #b)
-#define ASSERT_GE(a, b) Tester_Is(__FILE__, __LINE__, (a) >= (b), #a " >= " #b)
+#define ASSERT(x, msg)      Tester_Is(__FILE__, __LINE__, (x), #x ":" msg)
+#define ASSERT_TRUE(x)      Tester_Is(__FILE__, __LINE__, (x), #x)
+#define ASSERT_FALSE(x)     Tester_Is(__FILE__, __LINE__, !(x), #x)
+#define ASSERT_EQ(a, b)     Tester_Is(__FILE__, __LINE__, (a) == (b), #a " == " #b)
+#define ASSERT_STREQ(a, b)  Tester_Is(__FILE__, __LINE__, strcmp(a, b) == 0, #a " == " #b)
+#define ASSERT_NE(a, b)     Tester_Is(__FILE__, __LINE__, (a) != (b), #a " != " #b)
+#define ASSERT_LT(a, b)     Tester_Is(__FILE__, __LINE__, (a) < (b), #a " < " #b)
+#define ASSERT_LE(a, b)     Tester_Is(__FILE__, __LINE__, (a) <= (b), #a " <= " #b)
+#define ASSERT_GT(a, b)     Tester_Is(__FILE__, __LINE__, (a) > (b), #a " > " #b)
+#define ASSERT_GE(a, b)     Tester_Is(__FILE__, __LINE__, (a) >= (b), #a " >= " #b)
 
 void Register(char* name, void (*test)());
 void RegisterJustRun(char* name);
